@@ -27,5 +27,41 @@ typedef struct {
 
 @implementation MetalView
 
++ (Class) layerClass {
+    return [CAMetalLayer class];
+}
+
+- (instancetype) initWithCoder:(NSCoder *)aDecoder {
+    if( self = [super initWithCoder:aDecoder] ){
+        
+    }
+    
+    return self;
+}
+
+- (void) dealloc {
+    [self.mDisplayLink invalidate];
+}
+
+- (void)didMoveToSuperview {
+    [super didMoveToSuperview];
+    
+    if( self.subviews ){
+        self.mDisplayLink = [CADisplayLink displayLinkWithTarget:self selector:@selector(displayLinkDidFire:)];
+    } else {
+        [self.mDisplayLink invalidate];
+        self.mDisplayLink = nil;
+    }
+}
+
+- (void)displayLinkDidFire:(CADisplayLink*)displayLink {
+    [self redraw];
+}
+
+- (void) redraw {
+    
+}
+
+
 
 @end
