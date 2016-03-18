@@ -33,7 +33,7 @@ typedef struct {
 
 - (instancetype) initWithCoder:(NSCoder *)aDecoder {
     if( self = [super initWithCoder:aDecoder] ){
-        
+        [self mtlDeviceInit];
     }
     
     return self;
@@ -43,11 +43,22 @@ typedef struct {
     [self.mDisplayLink invalidate];
 }
 
+- (CAMetalLayer*) metalLayer {
+    return (CAMetalLayer*)self.layer;
+}
+
+- (void) mtlDeviceInit {
+    self.mDevice = MTLCreateSystemDefaultDevice();
+    self.metalLayer.device = self.mDevice;
+    self.metalLayer.pixelFormat = MTLPixelFormatBGRA8Unorm;
+}
+
 - (void)didMoveToSuperview {
     [super didMoveToSuperview];
     
     if( self.subviews ){
         self.mDisplayLink = [CADisplayLink displayLinkWithTarget:self selector:@selector(displayLinkDidFire:)];
+        [self.mDisplayLink addToRunLoop:[NSRunLoop mainRunLoop] forMode:NSRunLoopCommonModes];
     } else {
         [self.mDisplayLink invalidate];
         self.mDisplayLink = nil;
