@@ -98,11 +98,32 @@ typedef struct {
 }
 
 - (void)displayLinkDidFire:(CADisplayLink*)displayLink {
-    [self redraw];
+    @autoreleasepool {
+        [self redraw];
+    }
 }
 
 - (void) redraw {
+    id<CAMetalDrawable> drawable = [self.metalLayer nextDrawable];
+    id<MTLTexture> texture = drawable.texture;
     
+    if( drawable ) {
+        MTLRenderPassDescriptor * passDescriptor = [MTLRenderPassDescriptor renderPassDescriptor];
+        passDescriptor.colorAttachments[0].texture = texture;
+        passDescriptor.colorAttachments[0].clearColor = MTLClearColorMake(0.3, 0.3, 0.3, 1.0);
+        passDescriptor.colorAttachments[0].storeAction = MTLStoreActionStore;
+        passDescriptor.colorAttachments[0].loadAction = MTLLoadActionClear;
+        
+        id<MTLCommandBuffer> commandBuffer = [self.mCommandQueue commandBuffer];
+        id<MTLRenderCommandEncoder>  commandEncoder = [commandBuffer renderCommandEncoderWithDescriptor:passDescriptor];
+        [commandEncoder setRenderPipelineState:self.mPipeline];
+        [commandEncoder setVertexBuffer:self.mVertexBuffer offset:0 atIndex:0];
+        [commandEncoder drawPrimitives:MTLPrimitiveTypeTriangle vertexStart:0 vertexCount:3];
+        [commandEncoder endEncoding];
+        
+        [commandBuffer presentDrawable:drawable];
+        [commandBuffer commit];
+    }
 }
 
 
