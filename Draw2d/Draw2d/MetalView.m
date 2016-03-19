@@ -57,9 +57,9 @@ typedef struct {
 
 - (void) mtlVertexBufferInit {
     static const MetalVertex vertices[] = {
-        { .position = { 0.0f, 0.5f, 0.0f, 1.0f }, .color = { 1.0f, 0.0f, 0.0f, 1.0f } },
-        { .position = { -0.5, -0.5f, 0.0f, 1.0f }, .color = { 0.0f, 1.0f, 0.0f, 1.0f } },
-        { .position = { 0.5f, -0.5f, 0.0f, 1.0f }, .color = { 0.0f, 0.0f, 1.0f, 1.0f } }
+        { .position = { 0.0f, 0.8f, 0.0f, 1.0f }, .color = { 1.0f, 0.0f, 0.0f, 1.0f } },
+        { .position = { -0.8, -0.8f, 0.0f, 1.0f }, .color = { 0.0f, 1.0f, 0.0f, 1.0f } },
+        { .position = { 0.8f, -0.8f, 0.0f, 1.0f }, .color = { 0.0f, 0.0f, 1.0f, 1.0f } }
     };
     
     self.mVertexBuffer = [self.mDevice newBufferWithBytes:vertices length:sizeof(vertices) options:MTLResourceCPUCacheModeDefaultCache];
