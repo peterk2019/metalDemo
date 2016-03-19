@@ -13,6 +13,7 @@
 		D3908F3A1C9D6B3700076D59 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D3908F381C9D6B3700076D59 /* Main.storyboard */; };
 		D3908F3C1C9D6B3700076D59 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D3908F3B1C9D6B3700076D59 /* Assets.xcassets */; };
 		D3908F3F1C9D6B3700076D59 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D3908F3D1C9D6B3700076D59 /* LaunchScreen.storyboard */; };
+		D3908F481C9D6C6800076D59 /* MathUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = D3908F471C9D6C6800076D59 /* MathUtility.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,8 @@
 		D3908F3B1C9D6B3700076D59 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D3908F3E1C9D6B3700076D59 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D3908F401C9D6B3700076D59 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D3908F461C9D6C4200076D59 /* MathUtility.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MathUtility.h; sourceTree = "<group>"; };
+		D3908F471C9D6C6800076D59 /* MathUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MathUtility.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +70,8 @@
 				D3908F3D1C9D6B3700076D59 /* LaunchScreen.storyboard */,
 				D3908F401C9D6B3700076D59 /* Info.plist */,
 				D3908F2F1C9D6B3700076D59 /* Supporting Files */,
+				D3908F461C9D6C4200076D59 /* MathUtility.h */,
+				D3908F471C9D6C6800076D59 /* MathUtility.m */,
 			);
 			path = Draw3d;
 			sourceTree = "<group>";
@@ -110,6 +115,7 @@
 				TargetAttributes = {
 					D3908F2B1C9D6B3700076D59 = {
 						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = E6HMU725M5;
 					};
 				};
 			};
@@ -151,6 +157,7 @@
 			files = (
 				D3908F371C9D6B3700076D59 /* ViewController.m in Sources */,
 				D3908F341C9D6B3700076D59 /* AppDelegate.m in Sources */,
+				D3908F481C9D6C6800076D59 /* MathUtility.m in Sources */,
 				D3908F311C9D6B3700076D59 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -263,10 +270,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Draw3d/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = volvet.Draw3d;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -274,10 +284,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Draw3d/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = volvet.Draw3d;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
