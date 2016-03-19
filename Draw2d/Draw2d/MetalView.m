@@ -34,6 +34,7 @@ typedef struct {
 - (instancetype) initWithCoder:(NSCoder *)aDecoder {
     if( self = [super initWithCoder:aDecoder] ){
         [self mtlDeviceInit];
+        [self mtlVertexBufferInit];
     }
     
     return self;
@@ -51,6 +52,16 @@ typedef struct {
     self.mDevice = MTLCreateSystemDefaultDevice();
     self.metalLayer.device = self.mDevice;
     self.metalLayer.pixelFormat = MTLPixelFormatBGRA8Unorm;
+}
+
+- (void) mtlVertexBufferInit {
+    static const MetalVertex vertices[] = {
+        { .position = { 0.0f, 0.5f, 0.0f, 1.0f }, .color = { 1.0f, 0.0f, 0.0f, 1.0f } },
+        { .position = { -0.5, -0.5f, 0.0f, 1.0f }, .color = { 0.0f, 1.0f, 0.0f, 1.0f } },
+        { .position = { 0.5f, -0.5f, 0.0f, 1.0f }, .color = { 0.0f, 0.0f, 1.0f, 1.0f } }
+    };
+    
+    self.mVertexBuffer = [self.mDevice newBufferWithBytes:vertices length:sizeof(vertices) options:MTLResourceCPUCacheModeDefaultCache];
 }
 
 - (void)didMoveToSuperview {
