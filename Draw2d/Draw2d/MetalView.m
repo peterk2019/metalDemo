@@ -35,6 +35,7 @@ typedef struct {
     if( self = [super initWithCoder:aDecoder] ){
         [self mtlDeviceInit];
         [self mtlVertexBufferInit];
+        [self mtlPipelineInit];
     }
     
     return self;
@@ -62,6 +63,26 @@ typedef struct {
     };
     
     self.mVertexBuffer = [self.mDevice newBufferWithBytes:vertices length:sizeof(vertices) options:MTLResourceCPUCacheModeDefaultCache];
+}
+
+- (void) mtlPipelineInit {
+    id<MTLLibrary>  library = [self.mDevice newDefaultLibrary];
+    id<MTLFunction> vertexFunc = [library newFunctionWithName:@"vertex_main"];
+    id<MTLFunction> fragmentFunc = [library newFunctionWithName:@"fragment_main"];
+    
+    MTLRenderPipelineDescriptor * pipelineDescriptor = [MTLRenderPipelineDescriptor new];
+    pipelineDescriptor.colorAttachments[0].pixelFormat = MTLPixelFormatBGRA8Unorm;
+    pipelineDescriptor.vertexFunction = vertexFunc;
+    pipelineDescriptor.fragmentFunction = fragmentFunc;
+    
+    NSError * error = nil;
+    self.mPipeline = [self.mDevice newRenderPipelineStateWithDescriptor:pipelineDescriptor error:&error];
+    
+    if( self.mPipeline == nil ){
+        NSLog(@"mtlPipelineInit: fail to create pipeline");
+    }
+    
+    self.mCommandQueue = [self.mDevice newCommandQueue];
 }
 
 - (void)didMoveToSuperview {

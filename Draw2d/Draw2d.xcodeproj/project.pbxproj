@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D3908F221C9D1E7F00076D59 /* Shaders.metal in Sources */ = {isa = PBXBuildFile; fileRef = D3908F211C9D1E7F00076D59 /* Shaders.metal */; };
 		D3AE2DBF1C9C330900C8AC82 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D3AE2DBE1C9C330900C8AC82 /* main.m */; };
 		D3AE2DC21C9C330900C8AC82 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D3AE2DC11C9C330900C8AC82 /* AppDelegate.m */; };
 		D3AE2DC51C9C330900C8AC82 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3AE2DC41C9C330900C8AC82 /* ViewController.m */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D3908F211C9D1E7F00076D59 /* Shaders.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = Shaders.metal; sourceTree = "<group>"; };
 		D3AE2DBA1C9C330900C8AC82 /* Draw2d.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Draw2d.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3AE2DBE1C9C330900C8AC82 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D3AE2DC01C9C330900C8AC82 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -69,6 +71,7 @@
 		D3AE2DBC1C9C330900C8AC82 /* Draw2d */ = {
 			isa = PBXGroup;
 			children = (
+				D3908F211C9D1E7F00076D59 /* Shaders.metal */,
 				D3AE2DC01C9C330900C8AC82 /* AppDelegate.h */,
 				D3AE2DC11C9C330900C8AC82 /* AppDelegate.m */,
 				D3AE2DC31C9C330900C8AC82 /* ViewController.h */,
@@ -167,6 +170,7 @@
 				D3AE2DC51C9C330900C8AC82 /* ViewController.m in Sources */,
 				D3AE2DC21C9C330900C8AC82 /* AppDelegate.m in Sources */,
 				D3AE2DBF1C9C330900C8AC82 /* main.m in Sources */,
+				D3908F221C9D1E7F00076D59 /* Shaders.metal in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -317,6 +321,7 @@
 				D3AE2DD31C9C330A00C8AC82 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
