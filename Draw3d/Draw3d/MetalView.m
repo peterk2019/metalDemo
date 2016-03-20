@@ -51,7 +51,7 @@
 
 - (void) mtlInit {
     self.metalLayer.device = MTLCreateSystemDefaultDevice();
-    self.metalLayer.pixelFormat = MTLPixelFormatRGBA8Unorm;
+    self.metalLayer.pixelFormat = MTLPixelFormatBGRA8Unorm;
     self.mClearColor = MTLClearColorMake(1.0, 1.0, 1.0, 1.0);
     self.mPreferredFramePerSecond = 60;
 }

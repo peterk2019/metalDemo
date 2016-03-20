@@ -16,6 +16,7 @@
 		D3908F481C9D6C6800076D59 /* MathUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = D3908F471C9D6C6800076D59 /* MathUtility.m */; };
 		D3E5FC1F1C9E74EC00F474DD /* MetalView.m in Sources */ = {isa = PBXBuildFile; fileRef = D3E5FC1E1C9E74EC00F474DD /* MetalView.m */; };
 		D3E5FC211C9E7BE200F474DD /* MetalRender.m in Sources */ = {isa = PBXBuildFile; fileRef = D3E5FC201C9E7BE200F474DD /* MetalRender.m */; };
+		D3E5FC241C9EDC5C00F474DD /* Shader.metal in Sources */ = {isa = PBXBuildFile; fileRef = D3E5FC231C9EDC5C00F474DD /* Shader.metal */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +36,7 @@
 		D3E5FC1E1C9E74EC00F474DD /* MetalView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MetalView.m; sourceTree = "<group>"; };
 		D3E5FC201C9E7BE200F474DD /* MetalRender.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MetalRender.m; sourceTree = "<group>"; };
 		D3E5FC221C9E7BF600F474DD /* MetalRender.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MetalRender.h; sourceTree = "<group>"; };
+		D3E5FC231C9EDC5C00F474DD /* Shader.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = Shader.metal; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +84,7 @@
 				D3E5FC1E1C9E74EC00F474DD /* MetalView.m */,
 				D3E5FC201C9E7BE200F474DD /* MetalRender.m */,
 				D3E5FC221C9E7BF600F474DD /* MetalRender.h */,
+				D3E5FC231C9EDC5C00F474DD /* Shader.metal */,
 			);
 			path = Draw3d;
 			sourceTree = "<group>";
@@ -170,6 +173,7 @@
 				D3908F481C9D6C6800076D59 /* MathUtility.m in Sources */,
 				D3908F311C9D6B3700076D59 /* main.m in Sources */,
 				D3E5FC1F1C9E74EC00F474DD /* MetalView.m in Sources */,
+				D3E5FC241C9EDC5C00F474DD /* Shader.metal in Sources */,
 				D3E5FC211C9E7BE200F474DD /* MetalRender.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

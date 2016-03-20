@@ -18,11 +18,11 @@
 
 @property (nonatomic, weak)   id<MetalViewDelegate>   mDelegate;
 
-@property (nonatomic, readonly)  CAMetalLayer  * mMetalLayer;
+@property (nonatomic)  CAMetalLayer  * mMetalLayer;
 
 @property (nonatomic)  NSInteger   mPreferredFramePerSecond;
 
-@property (nonatomic)  MTLPixelFormat   mPixelFormat;
+@property (nonatomic)  MTLPixelFormat   pixelFormat;
 
 @property (nonatomic, assign)  MTLClearColor    mClearColor;
 
@@ -30,7 +30,7 @@
 
 @property (nonatomic, readonly) id<CAMetalDrawable>  mCurrentDrawable;
 
-@property (nonatomic, readonly)  MTLRenderPassDescriptor  * mCurrentRenderPassDescriptor;
+@property (nonatomic)  MTLRenderPassDescriptor  * currentRenderPassDescriptor;
 
 @end
 
