@@ -112,11 +112,13 @@
 }
 
 - (void) displayLinkDidFire: (CADisplayLink*)  displayLink {
-    self.mCurrentDrawable = self.metalLayer.nextDrawable;
-    self.mFrameDuration = self.mDisplayLink.duration;
+    @autoreleasepool {
+        self.mCurrentDrawable = self.metalLayer.nextDrawable;
+        self.mFrameDuration = self.mDisplayLink.duration;
     
-    if( [self.mDelegate respondsToSelector:@selector(drawInView:)] ) {
-        [self.mDelegate drawInView:self];
+        if( [self.mDelegate respondsToSelector:@selector(drawInView:)] ) {
+           [self.mDelegate drawInView:self];
+        }
     }
 }
 
