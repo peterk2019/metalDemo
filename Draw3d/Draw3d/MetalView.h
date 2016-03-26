@@ -18,8 +18,6 @@
 
 @property (nonatomic, weak)   id<MetalViewDelegate>   mDelegate;
 
-@property (nonatomic)  CAMetalLayer  * mMetalLayer;
-
 @property (nonatomic)  NSInteger   mPreferredFramePerSecond;
 
 @property (nonatomic)  MTLPixelFormat   pixelFormat;
@@ -31,6 +29,8 @@
 @property (nonatomic, readonly) id<CAMetalDrawable>  mCurrentDrawable;
 
 @property (nonatomic)  MTLRenderPassDescriptor  * currentRenderPassDescriptor;
+
+- (CAMetalLayer*) metalLayer;
 
 @end
 

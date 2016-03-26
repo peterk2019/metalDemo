@@ -51,6 +51,7 @@ typedef struct
     if( self = [super init] ){
         _mDevice = MTLCreateSystemDefaultDevice();
         _mDisplaySemaphore = dispatch_semaphore_create(InFlightBufferCount);
+        _mTime = 0.0;
         
         [self mtlPipelineInit];
         [self mtlBufferInit];
@@ -124,9 +125,9 @@ typedef struct
 - (void)updateUniformsForView:(MetalView *)view duration:(NSTimeInterval)duration
 {
     _mTime += duration;
-    _mRotateX += duration * (M_PI / 2);
-    _mRotateY += duration * (M_PI / 3);
-    float scaleFactor = sinf(5 * _mTime) * 0.25 + 1;
+    _mRotateX += duration * (M_PI / 4);
+    _mRotateY += duration * (M_PI / 5);
+    float scaleFactor = sinf(0.5 * _mTime) * 0.25 + 1;
     const vector_float3 xAxis = { 1, 0, 0 };
     const vector_float3 yAxis = { 0, 1, 0 };
     const matrix_float4x4 xRot = matrix_float4x4_rotation(xAxis, _mRotateX);
@@ -137,7 +138,7 @@ typedef struct
     const vector_float3 cameraTranslation = { 0, 0, -5 };
     const matrix_float4x4 viewMatrix = matrix_float4x4_translation(cameraTranslation);
     
-    const CGSize drawableSize = view.mMetalLayer.drawableSize;
+    const CGSize drawableSize = view.metalLayer.drawableSize;
     const float aspect = drawableSize.width / drawableSize.height;
     const float fov = (2 * M_PI) / 5;
     const float near = 1;
@@ -155,7 +156,7 @@ typedef struct
 {
     dispatch_semaphore_wait(_mDisplaySemaphore, DISPATCH_TIME_FOREVER);
     
-    view.mClearColor = MTLClearColorMake(0.95, 0.95, 0.95, 1);
+    view.mClearColor = MTLClearColorMake(0.3, 0.3, 0.3, 1);
     
     [self updateUniformsForView:view duration:view.mFrameDuration];
     
