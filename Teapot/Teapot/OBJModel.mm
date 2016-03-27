@@ -49,8 +49,47 @@ static bool operator > (const FaceVertex & left, const FaceVertex & right) {
     std::vector<VertexIndex> groupIndices;
     std::map<FaceVertex, VertexIndex> vertexToGrupIndexMap;
 }
+
+@property (nonatomic, strong)  NSMutableArray  * mutableArray;
+@property (nonatomic, weak)    OBJGroup        * currentGroup;
+@property (nonatomic, assign)  BOOL              shouldGenerateNormals;
+
 @end
 
 @implementation OBJModel
+
+- (instancetype) initWithContentsOfURL :(NSURL*)fileUrl generateNormals:(BOOL)generateNormals {
+    if( self = [super init] ){
+        [self parseModelAtURL :fileUrl];
+        _shouldGenerateNormals = generateNormals;
+        _mutableArray = [NSMutableArray array];
+    }
+    
+    return self;
+}
+
+- (OBJGroup*) groupForName :(NSString*)groupName {
+    return nil;
+}
+
+- (void) parseModelAtURL: (NSURL*) url {
+    NSError  * error = nil;
+    NSString * contents = [NSString stringWithContentsOfURL :url
+                                                    encoding:NSASCIIStringEncoding
+                                                       error:&error];
+    if( !contents ){
+        NSLog(@"OBJModel: Can't load url contents");
+        return;
+    }
+    
+    NSScanner * scanner = [NSScanner scannerWithString:contents];
+    
+    NSCharacterSet * skipSet = [NSCharacterSet whitespaceAndNewlineCharacterSet];
+    NSCharacterSet * consumeSet = [skipSet invertedSet];
+    scanner.charactersToBeSkipped = skipSet;
+    
+    
+}
+
 
 @end
