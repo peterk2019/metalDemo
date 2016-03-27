@@ -72,6 +72,48 @@ static bool operator > (const FaceVertex & left, const FaceVertex & right) {
     return nil;
 }
 
+
+- (void) addVertexToCurrentGroup :(FaceVertex)fv {
+    static const vector_float4 UP = { 0, 1, 0, 0 };
+    static const uint16_t    INVALID_INDEX = 0xffff;
+    
+    uint16_t  groupIndex;
+    auto  it = vertexToGrupIndexMap.find(fv);
+    if( it != vertexToGrupIndexMap.end() ){
+        groupIndex = (*it).second;
+    } else {
+        Vertex  vertex;
+        vertex.position = vertices[fv.vi];
+        vertex.normal = (fv.ni != INVALID_INDEX) ? normals[fv.ni] : UP;
+        
+        groupVertices.push_back(vertex);
+        groupIndex = groupVertices.size() - 1;
+        vertexToGrupIndexMap[fv] = groupIndex;
+    }
+    
+    groupIndices.push_back(groupIndex);
+}
+
+- (void) addFaceWithFaceVertices :(const std::vector<FaceVertex> &)faceVertices {
+    for( size_t i = 0; i < faceVertices.size() - 2; i++ ) {
+        [self addVertexToCurrentGroup :faceVertices[i]];
+        [self addVertexToCurrentGroup :faceVertices[i+1]];
+        [self addVertexToCurrentGroup :faceVertices[i+2]];
+
+    }
+}
+
+- (void) endCurrentGroup {
+    if( ! _currentGroup ){
+        return;
+    }
+}
+
+- (void) beginGroupWithName :(NSString*)name {
+    
+}
+
+
 - (void) parseModelAtURL: (NSURL*) url {
     NSError  * error = nil;
     NSString * contents = [NSString stringWithContentsOfURL :url
