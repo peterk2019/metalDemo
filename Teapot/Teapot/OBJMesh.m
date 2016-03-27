@@ -8,11 +8,31 @@
 
 
 #import "OBJMesh.h"
+#import "OBJGroup.h"
+
+
+@implementation Mesh
+
+@end
 
 
 @implementation OBJMesh
 
+@synthesize vertexBuffer;
+@synthesize indexBuffer;
 
+- (instancetype) initWithGroup:(OBJGroup *)group device:(id<MTLDevice>)device {
+    if( self = [super init] ){
+        vertexBuffer = [device newBufferWithBytes:[group.vertexData bytes] length:[group.vertexData length] options:MTLResourceCPUCacheModeDefaultCache];
+        
+        [vertexBuffer setLabel:group.name];
+        
+        indexBuffer = [device newBufferWithBytes:[group.indexData bytes] length:[group.indexData length] options:MTLResourceCPUCacheModeDefaultCache];
+        
+        [indexBuffer setLabel:group.name];
+    }
+    
+    return self;
+}
 
 @end
-

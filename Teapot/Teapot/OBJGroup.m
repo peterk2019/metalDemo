@@ -12,6 +12,9 @@
 
 @implementation OBJGroup
 
+@synthesize vertexData;
+@synthesize indexData;
+
 - (instancetype) initWithName:(NSString *)name {
     if( self = [super init] ){
         _name = [name copy];
@@ -20,8 +23,8 @@
 }
 
 - (NSString *) description {
-    size_t vertCount = _vertexData.length / sizeof(Vertex);
-    size_t indexCount = _indexData.length / sizeof(VertexIndex);
+    size_t vertCount = vertexData.length / sizeof(Vertex);
+    size_t indexCount = indexData.length / sizeof(VertexIndex);
     
     return [NSString stringWithFormat:@"<OBJMesh %p, name %@, vertices %zu, indices %zu", self, _name,
             vertCount, indexCount];

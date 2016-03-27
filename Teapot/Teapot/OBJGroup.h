@@ -12,8 +12,8 @@
 
 - (instancetype)  initWithName :(NSString*) name;
 
-@property  (copy)   NSString * name;
-@property  (copy)   NSData * vertexData;
-@property  (copy)   NSData * indexData;
+@property  (copy, readonly)   NSString * name;
+@property  (copy, readonly)   NSData * vertexData;
+@property  (copy, readonly)   NSData * indexData;
 
 @end

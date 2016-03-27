@@ -12,10 +12,18 @@
 @import Metal;
 @import UIKit;
 
-@interface  OBJMesh  : NSObject
+@class OBJGroup;
+
+@interface  Mesh  : NSObject
 
 @property (nonatomic, readonly)   id<MTLBuffer>   vertexBuffer;
 @property (nonatomic, readonly)   id<MTLBuffer>   indexBuffer;
+
+@end
+
+@interface OBJMesh : Mesh
+
+- (instancetype) initWithGroup :(OBJGroup*) group  device:(id<MTLDevice>)device;
 
 @end
 
