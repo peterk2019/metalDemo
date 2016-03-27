@@ -10,9 +10,8 @@
 #define typedef_h
 
 
-@import simd;
-@import Metal;
-
+#include <simd/simd.h>
+#include <Metal/Metal.h>
 
 #define VertexIndexType  MTLIndexTypeUInt16
 typedef uint16_t VertexIndex;

@@ -16,6 +16,7 @@
 		D38854951CA7A45500916E0A /* MathUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = D38854941CA7A45500916E0A /* MathUtility.m */; };
 		D38854981CA7A6E000916E0A /* OBJMesh.m in Sources */ = {isa = PBXBuildFile; fileRef = D38854971CA7A6E000916E0A /* OBJMesh.m */; };
 		D388549B1CA7A86D00916E0A /* OBJGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = D388549A1CA7A86D00916E0A /* OBJGroup.m */; };
+		D388549F1CA7D47600916E0A /* OBJModel.mm in Sources */ = {isa = PBXBuildFile; fileRef = D388549E1CA7D47600916E0A /* OBJModel.mm */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,8 @@
 		D38854991CA7A86D00916E0A /* OBJGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OBJGroup.h; sourceTree = "<group>"; };
 		D388549A1CA7A86D00916E0A /* OBJGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OBJGroup.m; sourceTree = "<group>"; };
 		D388549C1CA7B03000916E0A /* typedef.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = typedef.h; sourceTree = "<group>"; };
+		D388549D1CA7D47600916E0A /* OBJModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OBJModel.h; sourceTree = "<group>"; };
+		D388549E1CA7D47600916E0A /* OBJModel.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = OBJModel.mm; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +87,8 @@
 				D388548D1CA7A3EB00916E0A /* Info.plist */,
 				D388547C1CA7A3EB00916E0A /* Supporting Files */,
 				D388549C1CA7B03000916E0A /* typedef.h */,
+				D388549D1CA7D47600916E0A /* OBJModel.h */,
+				D388549E1CA7D47600916E0A /* OBJModel.mm */,
 			);
 			path = Teapot;
 			sourceTree = "<group>";
@@ -168,6 +173,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D38854841CA7A3EB00916E0A /* ViewController.m in Sources */,
+				D388549F1CA7D47600916E0A /* OBJModel.mm in Sources */,
 				D38854811CA7A3EB00916E0A /* AppDelegate.m in Sources */,
 				D38854981CA7A6E000916E0A /* OBJMesh.m in Sources */,
 				D38854951CA7A45500916E0A /* MathUtility.m in Sources */,
