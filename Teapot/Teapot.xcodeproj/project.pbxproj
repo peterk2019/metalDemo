@@ -75,6 +75,9 @@
 				D38854971CA7A6E000916E0A /* OBJMesh.m */,
 				D38854991CA7A86D00916E0A /* OBJGroup.h */,
 				D388549A1CA7A86D00916E0A /* OBJGroup.m */,
+				D388549C1CA7B03000916E0A /* typedef.h */,
+				D388549D1CA7D47600916E0A /* OBJModel.h */,
+				D388549E1CA7D47600916E0A /* OBJModel.mm */,
 				D38854931CA7A45500916E0A /* MathUtility.h */,
 				D38854941CA7A45500916E0A /* MathUtility.m */,
 				D388547F1CA7A3EB00916E0A /* AppDelegate.h */,
@@ -86,9 +89,6 @@
 				D388548A1CA7A3EB00916E0A /* LaunchScreen.storyboard */,
 				D388548D1CA7A3EB00916E0A /* Info.plist */,
 				D388547C1CA7A3EB00916E0A /* Supporting Files */,
-				D388549C1CA7B03000916E0A /* typedef.h */,
-				D388549D1CA7D47600916E0A /* OBJModel.h */,
-				D388549E1CA7D47600916E0A /* OBJModel.mm */,
 			);
 			path = Teapot;
 			sourceTree = "<group>";
@@ -333,6 +333,7 @@
 				D38854921CA7A3EB00916E0A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

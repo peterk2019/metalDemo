@@ -99,7 +99,43 @@ static bool operator > (const FaceVertex & left, const FaceVertex & right) {
         [self addVertexToCurrentGroup :faceVertices[i]];
         [self addVertexToCurrentGroup :faceVertices[i+1]];
         [self addVertexToCurrentGroup :faceVertices[i+2]];
+    }
+}
 
+- (void) generateNormalsForCurrentGroup {
+    static const vector_float4 ZERO = { 0, 0, 0, 0 };
+    
+    size_t i;
+    size_t vertexCount = groupVertices.size();
+    
+    for( i=0;i<vertexCount;i++ ){
+        groupVertices[i].normal = ZERO;
+    }
+    
+    size_t indexCount = groupIndices.size();
+    for( i=0;i<indexCount;i+=3 ){
+        uint16_t i0 = groupIndices[i];
+        uint16_t i1 = groupIndices[i+1];
+        uint16_t i2 = groupIndices[i+2];
+        
+        Vertex *v0 = &groupVertices[i0];
+        Vertex *v1 = &groupVertices[i1];
+        Vertex *v2 = &groupVertices[i2];
+        
+        vector_float3 p0 = v0->position.xyz;
+        vector_float3 p1 = v1->position.xyz;
+        vector_float3 p2 = v2->position.xyz;
+        
+        vector_float3 cross = vector_cross(p1-p0, p2-p0);
+        vector_float4 cross4 = { cross.x, cross.y, cross.z, 0 };
+        
+        v0->normal += cross4;
+        v1->normal += cross4;
+        v2->normal += cross4;
+    }
+    
+    for( i=0;i<vertexCount;i++ ){
+        groupVertices[i].normal = vector_normalize(groupVertices[i].normal);
     }
 }
 
