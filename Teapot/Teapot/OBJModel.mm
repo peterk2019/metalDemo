@@ -14,6 +14,7 @@
 
 
 #import "typedef.h"
+#import "OBJGroup.h"
 #import "OBJModel.h"
 
 struct FaceVertex
@@ -50,7 +51,7 @@ static bool operator > (const FaceVertex & left, const FaceVertex & right) {
     std::map<FaceVertex, VertexIndex> vertexToGrupIndexMap;
 }
 
-@property (nonatomic, strong)  NSMutableArray  * mutableArray;
+@property (nonatomic, strong)  NSMutableArray  * mutableGroups;
 @property (nonatomic, weak)    OBJGroup        * currentGroup;
 @property (nonatomic, assign)  BOOL              shouldGenerateNormals;
 
@@ -62,7 +63,7 @@ static bool operator > (const FaceVertex & left, const FaceVertex & right) {
     if( self = [super init] ){
         [self parseModelAtURL :fileUrl];
         _shouldGenerateNormals = generateNormals;
-        _mutableArray = [NSMutableArray array];
+        _mutableGroups = [NSMutableArray array];
     }
     
     return self;
@@ -143,10 +144,30 @@ static bool operator > (const FaceVertex & left, const FaceVertex & right) {
     if( ! _currentGroup ){
         return;
     }
+    
+    if( _shouldGenerateNormals ){
+        [self generateNormalsForCurrentGroup];
+    }
+    
+    NSData * vertexData = [NSData dataWithBytes:groupVertices.data() length:sizeof(Vertex)*groupVertices.size()];
+    _currentGroup.vertexData = vertexData;
+    
+    NSData * indexData = [NSData dataWithBytes:groupIndices.data() length:sizeof(VertexIndex)*groupIndices.size()];
+    _currentGroup.indexData = indexData;
+    
+    groupVertices.clear();
+    groupIndices.clear();
+    vertexToGrupIndexMap.clear();
+    
+    _currentGroup = nil;
 }
 
 - (void) beginGroupWithName :(NSString*)name {
+    [self endCurrentGroup];
     
+    OBJGroup * newGroup = [[OBJGroup alloc] initWithName:name];
+    [_mutableGroups addObject:newGroup];
+    _currentGroup = newGroup;
 }
 
 
