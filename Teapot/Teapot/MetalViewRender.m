@@ -10,8 +10,10 @@
 @import simd;
 @import QuartzCore;
 
+#import "typedef.h"
 #import "MetalViewRender.h"
 #import "OBJMesh.h"
+#import "OBJModel.h"
 
 static const NSInteger   InFlightBufferCount = 3;
 
@@ -67,7 +69,13 @@ static const NSInteger   InFlightBufferCount = 3;
 }
 
 - (void) makeResource {
+    NSURL * modelURL = [[NSBundle mainBundle] URLForResource:@"teapot" withExtension:@"obj"];
+    OBJModel  * model = [[OBJModel alloc] initWithContentsOfURL:modelURL generateNormals:YES];
+    OBJGroup  * group = [model groupForName:@"teapot"];
     
+    _mesh = [[OBJMesh alloc] initWithGroup:group device:_device];
+    
+    _uniformBuffer = [_device newBufferWithLength:sizeof(Uniforms) * InFlightBufferCount options:MTLResourceCPUCacheModeDefaultCache];
 }
 
 - (void) drawInView:(UIMetalView *)view {
