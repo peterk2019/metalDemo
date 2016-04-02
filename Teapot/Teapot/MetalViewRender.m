@@ -46,6 +46,24 @@ static const NSInteger   InFlightBufferCount = 3;
     _commandQueue = [_device newCommandQueue];
     id<MTLLibrary> library = [_device newDefaultLibrary];
     
+    
+    MTLRenderPipelineDescriptor  * descriptor = [MTLRenderPipelineDescriptor new];
+    descriptor.vertexFunction = [library newFunctionWithName:@"vertex_main"];
+    descriptor.fragmentFunction = [library newFunctionWithName:@"fragment_main"];
+    descriptor.colorAttachments[0].pixelFormat = MTLPixelFormatBGRA8Unorm;
+    descriptor.depthAttachmentPixelFormat = MTLPixelFormatDepth32Float;
+    
+    MTLDepthStencilDescriptor  * depthStencilDescriptor = [MTLDepthStencilDescriptor new];
+    depthStencilDescriptor.depthCompareFunction = MTLCompareFunctionLess;
+    depthStencilDescriptor.depthWriteEnabled = YES;
+    _depthStencilState = [_device newDepthStencilStateWithDescriptor:depthStencilDescriptor];
+    
+    NSError * error = nil;
+    _renderPipelineState = [_device newRenderPipelineStateWithDescriptor:descriptor error:&error];
+    
+    if( !_renderPipelineState ){
+        NSLog(@"Fail to create pipeline");
+    }
 }
 
 - (void) makeResource {

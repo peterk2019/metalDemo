@@ -20,6 +20,7 @@
 		D388549F1CA7D47600916E0A /* OBJModel.mm in Sources */ = {isa = PBXBuildFile; fileRef = D388549E1CA7D47600916E0A /* OBJModel.mm */; };
 		D3F1920E1CAFCA5700D4CDC7 /* MetalViewRender.m in Sources */ = {isa = PBXBuildFile; fileRef = D3F1920D1CAFCA5700D4CDC7 /* MetalViewRender.m */; };
 		D3F192101CAFCFF500D4CDC7 /* shader.metal in Sources */ = {isa = PBXBuildFile; fileRef = D3F1920F1CAFCFF500D4CDC7 /* shader.metal */; };
+		D3F192121CAFF65500D4CDC7 /* teapot.obj in Resources */ = {isa = PBXBuildFile; fileRef = D3F192111CAFF65500D4CDC7 /* teapot.obj */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +48,7 @@
 		D3F1920C1CAFCA5700D4CDC7 /* MetalViewRender.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MetalViewRender.h; sourceTree = "<group>"; };
 		D3F1920D1CAFCA5700D4CDC7 /* MetalViewRender.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MetalViewRender.m; sourceTree = "<group>"; };
 		D3F1920F1CAFCFF500D4CDC7 /* shader.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = shader.metal; sourceTree = "<group>"; };
+		D3F192111CAFF65500D4CDC7 /* teapot.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = teapot.obj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +81,7 @@
 		D388547B1CA7A3EB00916E0A /* Teapot */ = {
 			isa = PBXGroup;
 			children = (
+				D3F192111CAFF65500D4CDC7 /* teapot.obj */,
 				D38854961CA7A6C100916E0A /* OBJMesh.h */,
 				D38854971CA7A6E000916E0A /* OBJMesh.m */,
 				D38854991CA7A86D00916E0A /* OBJGroup.h */,
@@ -172,6 +175,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D3F192121CAFF65500D4CDC7 /* teapot.obj in Resources */,
 				D388548C1CA7A3EB00916E0A /* LaunchScreen.storyboard in Resources */,
 				D38854891CA7A3EB00916E0A /* Assets.xcassets in Resources */,
 				D38854871CA7A3EB00916E0A /* Main.storyboard in Resources */,
