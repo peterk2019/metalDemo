@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D3617AA21CAF584C00C2286B /* UIMetalView.m in Sources */ = {isa = PBXBuildFile; fileRef = D3617AA11CAF584C00C2286B /* UIMetalView.m */; };
 		D388547E1CA7A3EB00916E0A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D388547D1CA7A3EB00916E0A /* main.m */; };
 		D38854811CA7A3EB00916E0A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D38854801CA7A3EB00916E0A /* AppDelegate.m */; };
 		D38854841CA7A3EB00916E0A /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D38854831CA7A3EB00916E0A /* ViewController.m */; };
@@ -20,6 +21,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D3617AA01CAF584C00C2286B /* UIMetalView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIMetalView.h; sourceTree = "<group>"; };
+		D3617AA11CAF584C00C2286B /* UIMetalView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIMetalView.m; sourceTree = "<group>"; };
 		D38854791CA7A3EB00916E0A /* Teapot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Teapot.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D388547D1CA7A3EB00916E0A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D388547F1CA7A3EB00916E0A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -89,6 +92,8 @@
 				D388548A1CA7A3EB00916E0A /* LaunchScreen.storyboard */,
 				D388548D1CA7A3EB00916E0A /* Info.plist */,
 				D388547C1CA7A3EB00916E0A /* Supporting Files */,
+				D3617AA01CAF584C00C2286B /* UIMetalView.h */,
+				D3617AA11CAF584C00C2286B /* UIMetalView.m */,
 			);
 			path = Teapot;
 			sourceTree = "<group>";
@@ -176,6 +181,7 @@
 				D388549F1CA7D47600916E0A /* OBJModel.mm in Sources */,
 				D38854811CA7A3EB00916E0A /* AppDelegate.m in Sources */,
 				D38854981CA7A6E000916E0A /* OBJMesh.m in Sources */,
+				D3617AA21CAF584C00C2286B /* UIMetalView.m in Sources */,
 				D38854951CA7A45500916E0A /* MathUtility.m in Sources */,
 				D388547E1CA7A3EB00916E0A /* main.m in Sources */,
 				D388549B1CA7A86D00916E0A /* OBJGroup.m in Sources */,
