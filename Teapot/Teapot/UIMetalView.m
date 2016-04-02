@@ -96,8 +96,10 @@
     self.currentDrawable = [self.metalLayer nextDrawable];
     self.frameDuration = displayLink.duration;
     
-    if( [self.delegate respondsToSelector:@selector(drawInView:)] ){
-        [self.delegate drawInView:self];
+    @autoreleasepool {
+        if( [self.delegate respondsToSelector:@selector(drawInView:)] ){
+            [self.delegate drawInView:self];
+        }
     }
 }
 
@@ -115,6 +117,22 @@
         [self.displayLink invalidate];
         self.displayLink = nil;
     }
+}
+
+- (MTLRenderPassDescriptor*) currentRenderPassDescriptor {
+    MTLRenderPassDescriptor * descriptor = [MTLRenderPassDescriptor new];
+    
+    descriptor.colorAttachments[0].texture = [self.currentDrawable texture];
+    descriptor.colorAttachments[0].clearColor = self.clearColor;
+    descriptor.colorAttachments[0].storeAction = MTLStoreActionStore;
+    descriptor.colorAttachments[0].loadAction = MTLLoadActionClear;
+    
+    descriptor.depthAttachment.texture = self.depthTexture;
+    descriptor.depthAttachment.clearDepth = 1.0;
+    descriptor.depthAttachment.loadAction = MTLLoadActionClear;
+    descriptor.depthAttachment.storeAction = MTLStoreActionDontCare;
+    
+    return descriptor;
 }
 
 

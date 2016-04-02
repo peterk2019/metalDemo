@@ -111,7 +111,10 @@ static const NSInteger   InFlightBufferCount = 3;
 }
 
 - (void) drawInView:(UIMetalView *)view {
+    dispatch_semaphore_wait(_displaySemaphore, DISPATCH_TIME_FOREVER);
     
+    view.clearColor = MTLClearColorMake(0.95, 0.95, 0.95, 1);
+    [self updateUniformsForView:view duration:view.frameDuration];
 }
 
 @end
