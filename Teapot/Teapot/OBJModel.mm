@@ -36,9 +36,9 @@ static bool operator < (const FaceVertex & left, const FaceVertex & right) {
     else return false;
 }
 
-static bool operator > (const FaceVertex & left, const FaceVertex & right) {
-    return ! (left < right);
-}
+//static bool operator > (const FaceVertex & left, const FaceVertex & right) {
+//    return ! (left < right);
+//}
 
 
 @interface OBJModel()
@@ -186,7 +186,69 @@ static bool operator > (const FaceVertex & left, const FaceVertex & right) {
     NSCharacterSet * skipSet = [NSCharacterSet whitespaceAndNewlineCharacterSet];
     NSCharacterSet * consumeSet = [skipSet invertedSet];
     scanner.charactersToBeSkipped = skipSet;
+    NSCharacterSet * endlineSet = [NSCharacterSet newlineCharacterSet];
     
+    while( ![scanner isAtEnd] ){
+        NSString * token = nil;
+        if( ![scanner scanCharactersFromSet:consumeSet intoString:&token] ){
+            break;
+        }
+        
+        if( [token isEqualToString:@"v"] ){
+            float x, y, z;
+            [scanner scanFloat:&x];
+            [scanner scanFloat:&y];
+            [scanner scanFloat:&z];
+            
+            vector_float4  v = { x, y, z, 1 };
+            vertices.push_back(v);
+        } else if( [token isEqualToString:@"vt"] ) {
+            float u, v;
+            [scanner scanFloat:&u];
+            [scanner scanFloat:&v];
+            
+            vector_float2 vt = { u, v };
+            texCoords.push_back(vt);
+        } else if( [token isEqualToString:@"vn"] ) {
+            float nx, ny, nz;
+            
+            [scanner scanFloat:&nx];
+            [scanner scanFloat:&ny];
+            [scanner scanFloat:&nz];
+            
+            vector_float4 vn = { nx, ny, nz, 0 };
+            normals.push_back(vn);
+        } else if( [token isEqualToString:@"f"] ){
+            std::vector<FaceVertex>  faceVertices;
+            faceVertices.reserve(4);
+            
+            while(true) {
+                int32_t  vi = 0, ti = 0, ni = 0;
+                if( ![scanner scanInt:&vi] ){
+                    break;
+                }
+                if( [scanner scanString:@"/" intoString:nil] ){
+                    [scanner scanInt:&ti];
+                    
+                    if( [scanner scanString:@"/" intoString:nil] ) {
+                        [scanner scanInt:&ni];
+                    }
+                }
+                FaceVertex faceVertex;
+                faceVertex.vi = (vi<0) ? (vertices.size() + vi - 1) : (vi - 1);
+                faceVertex.ti = (ti<0) ? (texCoords.size() + ti - 1) : (ti - 1);
+                faceVertex.ni = (ni<0) ? (vertices.size() + ni - 1) : (ni - 1);
+                
+                faceVertices.push_back(faceVertex);
+            }
+            [self addFaceWithFaceVertices:faceVertices];
+        } else if( [token isEqualToString:@"g"] ){
+            NSString * groupName = nil;
+            if( [scanner scanUpToCharactersFromSet:endlineSet intoString:nil] ){
+                [self beginGroupWithName:groupName];
+            }
+        }
+    }
     
 }
 
