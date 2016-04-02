@@ -258,7 +258,7 @@ static bool operator < (const FaceVertex & left, const FaceVertex & right) {
             }
         }
     }
-    
+    [self endCurrentGroup];
 }
 
 
