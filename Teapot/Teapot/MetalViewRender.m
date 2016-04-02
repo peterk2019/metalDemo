@@ -12,6 +12,7 @@
 
 #import "typedef.h"
 #import "MetalViewRender.h"
+#import "MathUtility.h"
 #import "OBJMesh.h"
 #import "OBJModel.h"
 
@@ -76,6 +77,37 @@ static const NSInteger   InFlightBufferCount = 3;
     _mesh = [[OBJMesh alloc] initWithGroup:group device:_device];
     
     _uniformBuffer = [_device newBufferWithLength:sizeof(Uniforms) * InFlightBufferCount options:MTLResourceCPUCacheModeDefaultCache];
+}
+
+- (void) updateUniformsForView :(UIMetalView*)view duration:(NSTimeInterval)duration {
+    _time += duration;
+    _rotationX = 0;//duration * (M_PI/2);
+    _rotationY = 0;//duration * (M_PI/2);
+    float scaleFactor = 1;
+    static const vector_float3 xAxis = { 1, 0, 0 };
+    static const vector_float3 yAxis = { 0, 1, 0 };
+    const matrix_float4x4 xRot = matrix_float4x4_rotation(xAxis, _rotationX);
+    const matrix_float4x4 yRot = matrix_float4x4_rotation(yAxis, _rotationY);
+    const matrix_float4x4 scale = matrix_float4x4_uniform_scale(scaleFactor);
+    const matrix_float4x4 modelMatrix = matrix_multiply(matrix_multiply(xRot, yRot), scale);
+    
+    const vector_float3  cameraTranslation = { 0, 0, -1.5 };
+    const matrix_float4x4  viewMatrix = matrix_float4x4_translation(cameraTranslation);
+    
+    const CGSize drawableSize = view.metalLayer.drawableSize;
+    const float aspect = drawableSize.width / drawableSize.height;
+    const float fov = 2 * M_PI / 5;
+    const float near = 0.1;
+    const float far = 100;
+    const matrix_float4x4 projectionMatrix = matrix_float4x4_perspective(aspect, fov, near, far);
+    
+    Uniforms  uniforms;
+    uniforms.modelViewMatrix = matrix_multiply(viewMatrix, modelMatrix);
+    uniforms.modelViewProjectionMatrix = matrix_multiply(projectionMatrix, uniforms.modelViewMatrix);
+    uniforms.normalMatrix = matrix_float4x4_extract_linear(uniforms.modelViewMatrix);
+    
+    const NSUInteger uniformBufferOffset = sizeof(Uniforms) * _bufferIndex;
+    memcpy([_uniformBuffer contents] + uniformBufferOffset, &uniforms, sizeof(uniforms));
 }
 
 - (void) drawInView:(UIMetalView *)view {
