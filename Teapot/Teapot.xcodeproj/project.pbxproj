@@ -18,6 +18,8 @@
 		D38854981CA7A6E000916E0A /* OBJMesh.m in Sources */ = {isa = PBXBuildFile; fileRef = D38854971CA7A6E000916E0A /* OBJMesh.m */; };
 		D388549B1CA7A86D00916E0A /* OBJGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = D388549A1CA7A86D00916E0A /* OBJGroup.m */; };
 		D388549F1CA7D47600916E0A /* OBJModel.mm in Sources */ = {isa = PBXBuildFile; fileRef = D388549E1CA7D47600916E0A /* OBJModel.mm */; };
+		D3F1920E1CAFCA5700D4CDC7 /* MetalViewRender.m in Sources */ = {isa = PBXBuildFile; fileRef = D3F1920D1CAFCA5700D4CDC7 /* MetalViewRender.m */; };
+		D3F192101CAFCFF500D4CDC7 /* shader.metal in Sources */ = {isa = PBXBuildFile; fileRef = D3F1920F1CAFCFF500D4CDC7 /* shader.metal */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +44,9 @@
 		D388549C1CA7B03000916E0A /* typedef.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = typedef.h; sourceTree = "<group>"; };
 		D388549D1CA7D47600916E0A /* OBJModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OBJModel.h; sourceTree = "<group>"; };
 		D388549E1CA7D47600916E0A /* OBJModel.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = OBJModel.mm; sourceTree = "<group>"; };
+		D3F1920C1CAFCA5700D4CDC7 /* MetalViewRender.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MetalViewRender.h; sourceTree = "<group>"; };
+		D3F1920D1CAFCA5700D4CDC7 /* MetalViewRender.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MetalViewRender.m; sourceTree = "<group>"; };
+		D3F1920F1CAFCFF500D4CDC7 /* shader.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = shader.metal; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +99,9 @@
 				D388547C1CA7A3EB00916E0A /* Supporting Files */,
 				D3617AA01CAF584C00C2286B /* UIMetalView.h */,
 				D3617AA11CAF584C00C2286B /* UIMetalView.m */,
+				D3F1920C1CAFCA5700D4CDC7 /* MetalViewRender.h */,
+				D3F1920D1CAFCA5700D4CDC7 /* MetalViewRender.m */,
+				D3F1920F1CAFCFF500D4CDC7 /* shader.metal */,
 			);
 			path = Teapot;
 			sourceTree = "<group>";
@@ -181,6 +189,8 @@
 				D388549F1CA7D47600916E0A /* OBJModel.mm in Sources */,
 				D38854811CA7A3EB00916E0A /* AppDelegate.m in Sources */,
 				D38854981CA7A6E000916E0A /* OBJMesh.m in Sources */,
+				D3F192101CAFCFF500D4CDC7 /* shader.metal in Sources */,
+				D3F1920E1CAFCA5700D4CDC7 /* MetalViewRender.m in Sources */,
 				D3617AA21CAF584C00C2286B /* UIMetalView.m in Sources */,
 				D38854951CA7A45500916E0A /* MathUtility.m in Sources */,
 				D388547E1CA7A3EB00916E0A /* main.m in Sources */,
