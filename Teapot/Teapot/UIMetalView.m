@@ -16,6 +16,8 @@
 
 @property (nonatomic)  NSTimeInterval   frameDuration;
 
+@property (nonatomic, strong)  CADisplayLink * displayLink;
+
 @end
 
 
@@ -100,7 +102,19 @@
 }
 
 - (void) didMoveToWindow {
+    const NSTimeInterval idealFrameDuration = (1.0/60);
+    const NSTimeInterval targetFrameDuration = (1.0/self.preferredFramesPerSecond);
+    const NSInteger frameInterval = round(targetFrameDuration/idealFrameDuration);
     
+    if( self.window ){
+        [self.displayLink invalidate];
+        self.displayLink = [CADisplayLink displayLinkWithTarget:self selector:@selector(displayLinkDidFire:)];
+        self.displayLink.frameInterval = frameInterval;
+        [self.displayLink addToRunLoop:[NSRunLoop mainRunLoop] forMode:NSRunLoopCommonModes];
+    } else {
+        [self.displayLink invalidate];
+        self.displayLink = nil;
+    }
 }
 
 
