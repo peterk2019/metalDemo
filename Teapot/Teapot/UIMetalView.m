@@ -29,7 +29,7 @@
 }
 
 - (CAMetalLayer*)  metalLayer {
-    return (CAMetalLayer*)self.metalLayer;
+    return (CAMetalLayer*)self.layer;
 }
 
 - (instancetype) initWithCoder:(NSCoder *)aDecoder {

@@ -6,18 +6,33 @@
 //  Copyright © 2016年 volvet. All rights reserved.
 //
 
+#import <simd/simd.h>
 #import "ViewController.h"
-@import simd;
+#import "UIMetalView.h"
+#import "MetalViewRender.h"
+
 
 @interface ViewController ()
+
+@property (nonatomic, strong)  MetalViewRender * metalViewRender;
 
 @end
 
 @implementation ViewController
 
+- (UIMetalView*) uiMetalView {
+    return (UIMetalView*) self.view;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    _metalViewRender = [[MetalViewRender alloc] init];
+    self.uiMetalView.delegate = _metalViewRender;
+}
+
+- (BOOL) prefersStatusBarHidden {
+    return YES;
 }
 
 - (void)didReceiveMemoryWarning {

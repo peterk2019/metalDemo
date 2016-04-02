@@ -61,16 +61,25 @@ static bool operator < (const FaceVertex & left, const FaceVertex & right) {
 
 - (instancetype) initWithContentsOfURL :(NSURL*)fileUrl generateNormals:(BOOL)generateNormals {
     if( self = [super init] ){
-        [self parseModelAtURL :fileUrl];
         _shouldGenerateNormals = generateNormals;
         _mutableGroups = [NSMutableArray array];
+        [self parseModelAtURL :fileUrl];
     }
     
     return self;
 }
 
 - (OBJGroup*) groupForName :(NSString*)groupName {
-    return nil;
+    __block  OBJGroup * group = nil;
+    
+    [_mutableGroups enumerateObjectsUsingBlock:^(OBJGroup * objGroup, NSUInteger idx, BOOL * stop){
+        if( [objGroup.name isEqualToString:groupName] ){
+            group = objGroup;
+            *stop = YES;
+        }
+    }];
+    
+    return group;
 }
 
 
@@ -244,7 +253,7 @@ static bool operator < (const FaceVertex & left, const FaceVertex & right) {
             [self addFaceWithFaceVertices:faceVertices];
         } else if( [token isEqualToString:@"g"] ){
             NSString * groupName = nil;
-            if( [scanner scanUpToCharactersFromSet:endlineSet intoString:nil] ){
+            if( [scanner scanUpToCharactersFromSet:endlineSet intoString:&groupName] ){
                 [self beginGroupWithName:groupName];
             }
         }
