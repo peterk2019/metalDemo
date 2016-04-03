@@ -81,8 +81,8 @@ static const NSInteger   InFlightBufferCount = 3;
 
 - (void) updateUniformsForView :(UIMetalView*)view duration:(NSTimeInterval)duration {
     _time += duration;
-    _rotationX = 0;//duration * (M_PI/2);
-    _rotationY = 0;//duration * (M_PI/2);
+    _rotationX += duration * (M_PI/2);
+    _rotationY += duration * (M_PI/3);
     float scaleFactor = 1;
     static const vector_float3 xAxis = { 1, 0, 0 };
     static const vector_float3 yAxis = { 0, 1, 0 };
@@ -115,6 +115,31 @@ static const NSInteger   InFlightBufferCount = 3;
     
     view.clearColor = MTLClearColorMake(0.95, 0.95, 0.95, 1);
     [self updateUniformsForView:view duration:view.frameDuration];
+    
+    id<MTLCommandBuffer>   commandBuffer = [_commandQueue commandBuffer];
+    MTLRenderPassDescriptor * renderPassDescriptor = [view currentRenderPassDescriptor];
+    id<MTLRenderCommandEncoder>  renderCommandEncoder = [commandBuffer renderCommandEncoderWithDescriptor:renderPassDescriptor];
+    
+    [renderCommandEncoder setRenderPipelineState:_renderPipelineState];
+    [renderCommandEncoder setDepthStencilState:_depthStencilState];
+    [renderCommandEncoder setFrontFacingWinding:MTLWindingCounterClockwise];
+    [renderCommandEncoder setCullMode:MTLCullModeBack];
+    
+    const NSUInteger  uniformBufferOffset = sizeof(Uniforms) * _bufferIndex;
+    [renderCommandEncoder setVertexBuffer:_mesh.vertexBuffer offset:0 atIndex:0];
+    [renderCommandEncoder setVertexBuffer:self.uniformBuffer offset:uniformBufferOffset atIndex:1];
+    
+    [renderCommandEncoder drawIndexedPrimitives:MTLPrimitiveTypeTriangle indexCount:[_mesh.indexBuffer length]/sizeof(VertexIndex) indexType:VertexIndexType indexBuffer:_mesh.indexBuffer indexBufferOffset:0];
+    [renderCommandEncoder endEncoding];
+    
+    [commandBuffer presentDrawable:view.currentDrawable];
+    
+    [commandBuffer addCompletedHandler:^(id<MTLCommandBuffer> commandBuffer) {
+        self.bufferIndex = (self.bufferIndex + 1) % InFlightBufferCount;
+        dispatch_semaphore_signal(_displaySemaphore);
+    }];
+    
+    [commandBuffer commit];
 }
 
 @end
