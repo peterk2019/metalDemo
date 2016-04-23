@@ -10,5 +10,8 @@ draw triangle
 #### Draw3d
 draw cube
 
+#### teapot
+draw teapot
+
 ### Reference
 https://github.com/metal-by-example
