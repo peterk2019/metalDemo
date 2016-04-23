@@ -13,6 +13,7 @@
 		D3AB0F6C1CCB5A2E00090731 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D3AB0F6A1CCB5A2E00090731 /* Main.storyboard */; };
 		D3AB0F6E1CCB5A2E00090731 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D3AB0F6D1CCB5A2E00090731 /* Assets.xcassets */; };
 		D3AB0F711CCB5A2E00090731 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D3AB0F6F1CCB5A2E00090731 /* LaunchScreen.storyboard */; };
+		D3D1DBAB1CCB9C4C0001483A /* IPContext.m in Sources */ = {isa = PBXBuildFile; fileRef = D3D1DBAA1CCB9C4C0001483A /* IPContext.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,8 @@
 		D3AB0F6D1CCB5A2E00090731 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D3AB0F701CCB5A2E00090731 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D3AB0F721CCB5A2F00090731 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D3D1DBA91CCB9C4C0001483A /* IPContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IPContext.h; sourceTree = "<group>"; };
+		D3D1DBAA1CCB9C4C0001483A /* IPContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IPContext.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +61,8 @@
 		D3AB0F601CCB5A2E00090731 /* MetalImage */ = {
 			isa = PBXGroup;
 			children = (
+				D3D1DBA91CCB9C4C0001483A /* IPContext.h */,
+				D3D1DBAA1CCB9C4C0001483A /* IPContext.m */,
 				D3AB0F641CCB5A2E00090731 /* AppDelegate.h */,
 				D3AB0F651CCB5A2E00090731 /* AppDelegate.m */,
 				D3AB0F671CCB5A2E00090731 /* ViewController.h */,
@@ -110,6 +115,7 @@
 				TargetAttributes = {
 					D3AB0F5D1CCB5A2D00090731 = {
 						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = E6HMU725M5;
 					};
 				};
 			};
@@ -149,6 +155,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D3D1DBAB1CCB9C4C0001483A /* IPContext.m in Sources */,
 				D3AB0F691CCB5A2E00090731 /* ViewController.m in Sources */,
 				D3AB0F661CCB5A2E00090731 /* AppDelegate.m in Sources */,
 				D3AB0F631CCB5A2E00090731 /* main.m in Sources */,
@@ -265,10 +272,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = MetalImage/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = volvet.MetalImage;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -276,10 +286,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = MetalImage/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = volvet.MetalImage;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
@@ -302,6 +315,7 @@
 				D3AB0F771CCB5A2F00090731 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
