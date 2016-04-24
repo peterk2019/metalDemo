@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D31C58411CCCF0790067DEFD /* ImageFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = D31C58401CCCF0790067DEFD /* ImageFilter.m */; };
 		D3AB0F631CCB5A2E00090731 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D3AB0F621CCB5A2E00090731 /* main.m */; };
 		D3AB0F661CCB5A2E00090731 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D3AB0F651CCB5A2E00090731 /* AppDelegate.m */; };
 		D3AB0F691CCB5A2E00090731 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3AB0F681CCB5A2E00090731 /* ViewController.m */; };
@@ -17,6 +18,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D31C583F1CCCF0790067DEFD /* ImageFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageFilter.h; sourceTree = "<group>"; };
+		D31C58401CCCF0790067DEFD /* ImageFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageFilter.m; sourceTree = "<group>"; };
 		D3AB0F5E1CCB5A2D00090731 /* MetalImage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MetalImage.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3AB0F621CCB5A2E00090731 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D3AB0F641CCB5A2E00090731 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -72,6 +75,8 @@
 				D3AB0F6F1CCB5A2E00090731 /* LaunchScreen.storyboard */,
 				D3AB0F721CCB5A2F00090731 /* Info.plist */,
 				D3AB0F611CCB5A2E00090731 /* Supporting Files */,
+				D31C583F1CCCF0790067DEFD /* ImageFilter.h */,
+				D31C58401CCCF0790067DEFD /* ImageFilter.m */,
 			);
 			path = MetalImage;
 			sourceTree = "<group>";
@@ -157,6 +162,7 @@
 			files = (
 				D3D1DBAB1CCB9C4C0001483A /* IPContext.m in Sources */,
 				D3AB0F691CCB5A2E00090731 /* ViewController.m in Sources */,
+				D31C58411CCCF0790067DEFD /* ImageFilter.m in Sources */,
 				D3AB0F661CCB5A2E00090731 /* AppDelegate.m in Sources */,
 				D3AB0F631CCB5A2E00090731 /* main.m in Sources */,
 			);
