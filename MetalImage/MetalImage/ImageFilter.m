@@ -40,4 +40,37 @@
     
 }
 
+- (void) applyFilter {
+    id<MTLTexture>  inputTexture = self.provider.texture;
+    
+    if( (!_internalTexture) || ([_internalTexture width] != [inputTexture width]) ||
+       ([_internalTexture height] != [_internalTexture height]) ) {
+        MTLTextureDescriptor * textureDescriptor = [MTLTextureDescriptor texture2DDescriptorWithPixelFormat:[inputTexture pixelFormat] width:[inputTexture width] height:[inputTexture height] mipmapped:NO];
+        _internalTexture = [_context.device newTextureWithDescriptor:textureDescriptor];
+    }
+    
+    MTLSize threadgroupCounts = MTLSizeMake(8, 8, 1);
+    MTLSize threadgroups = MTLSizeMake([inputTexture width]/threadgroupCounts.width,
+                                       [inputTexture height]/threadgroupCounts.height,
+                                       1);
+    
+    id<MTLCommandBuffer>  commandBuffer = [_context.commandQuene commandBuffer];
+    id<MTLComputeCommandEncoder> commandEncoder = [commandBuffer computeCommandEncoder];
+    [commandEncoder setComputePipelineState: _pipeline];
+    [commandEncoder setTexture:inputTexture atIndex:0];
+    [self configureArgumentTableWithCommandEncoder:commandEncoder];
+    [commandEncoder dispatchThreadgroups:threadgroups threadsPerThreadgroup:threadgroupCounts];
+    [commandEncoder endEncoding];
+    
+    [commandBuffer commit];
+    [commandBuffer waitUntilCompleted];
+}
+
+- (id<MTLTexture>)  texture {
+    if( _dirty ) {
+        [self applyFilter];
+    }
+    return self.internalTexture;
+}
+
 @end
