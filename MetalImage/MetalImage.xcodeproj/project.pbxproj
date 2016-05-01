@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		D31C58411CCCF0790067DEFD /* ImageFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = D31C58401CCCF0790067DEFD /* ImageFilter.m */; };
 		D346F0601CD5826200FFA5AA /* GaussianBlurFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = D346F05F1CD5826200FFA5AA /* GaussianBlurFilter.m */; };
+		D346F0631CD5EF8B00FFA5AA /* SaturationAdjustmentFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = D346F0621CD5EF8B00FFA5AA /* SaturationAdjustmentFilter.m */; };
 		D3AB0F631CCB5A2E00090731 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D3AB0F621CCB5A2E00090731 /* main.m */; };
 		D3AB0F661CCB5A2E00090731 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D3AB0F651CCB5A2E00090731 /* AppDelegate.m */; };
 		D3AB0F691CCB5A2E00090731 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3AB0F681CCB5A2E00090731 /* ViewController.m */; };
@@ -23,6 +24,8 @@
 		D31C58401CCCF0790067DEFD /* ImageFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageFilter.m; sourceTree = "<group>"; };
 		D346F05E1CD5826200FFA5AA /* GaussianBlurFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GaussianBlurFilter.h; sourceTree = "<group>"; };
 		D346F05F1CD5826200FFA5AA /* GaussianBlurFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GaussianBlurFilter.m; sourceTree = "<group>"; };
+		D346F0611CD5EF8B00FFA5AA /* SaturationAdjustmentFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SaturationAdjustmentFilter.h; sourceTree = "<group>"; };
+		D346F0621CD5EF8B00FFA5AA /* SaturationAdjustmentFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SaturationAdjustmentFilter.m; sourceTree = "<group>"; };
 		D3AB0F5E1CCB5A2D00090731 /* MetalImage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MetalImage.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3AB0F621CCB5A2E00090731 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D3AB0F641CCB5A2E00090731 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -82,6 +85,8 @@
 				D31C58401CCCF0790067DEFD /* ImageFilter.m */,
 				D346F05E1CD5826200FFA5AA /* GaussianBlurFilter.h */,
 				D346F05F1CD5826200FFA5AA /* GaussianBlurFilter.m */,
+				D346F0611CD5EF8B00FFA5AA /* SaturationAdjustmentFilter.h */,
+				D346F0621CD5EF8B00FFA5AA /* SaturationAdjustmentFilter.m */,
 			);
 			path = MetalImage;
 			sourceTree = "<group>";
@@ -168,6 +173,7 @@
 				D3D1DBAB1CCB9C4C0001483A /* IPContext.m in Sources */,
 				D3AB0F691CCB5A2E00090731 /* ViewController.m in Sources */,
 				D31C58411CCCF0790067DEFD /* ImageFilter.m in Sources */,
+				D346F0631CD5EF8B00FFA5AA /* SaturationAdjustmentFilter.m in Sources */,
 				D346F0601CD5826200FFA5AA /* GaussianBlurFilter.m in Sources */,
 				D3AB0F661CCB5A2E00090731 /* AppDelegate.m in Sources */,
 				D3AB0F631CCB5A2E00090731 /* main.m in Sources */,
