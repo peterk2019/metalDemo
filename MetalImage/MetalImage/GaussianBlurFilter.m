@@ -23,7 +23,7 @@
 }
 
 - (instancetype) initWithRadius :(float)radius context:(IPContext*)context {
-    if( self = [super initWithFunctionName:@"gaussian_blur" context:context] ){
+    if( self = [super initWithFunctionName:@"gaussian_blur_2d" context:context] ){
         _radius = radius;
     }
     return self;

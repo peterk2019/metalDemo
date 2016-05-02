@@ -19,6 +19,7 @@
 		D3AB0F6E1CCB5A2E00090731 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D3AB0F6D1CCB5A2E00090731 /* Assets.xcassets */; };
 		D3AB0F711CCB5A2E00090731 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D3AB0F6F1CCB5A2E00090731 /* LaunchScreen.storyboard */; };
 		D3D1DBAB1CCB9C4C0001483A /* IPContext.m in Sources */ = {isa = PBXBuildFile; fileRef = D3D1DBAA1CCB9C4C0001483A /* IPContext.m */; };
+		D3E1E1811CD6F3D00043CE06 /* Shaders.metal in Sources */ = {isa = PBXBuildFile; fileRef = D3E1E1801CD6F3D00043CE06 /* Shaders.metal */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		D3AB0F721CCB5A2F00090731 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D3D1DBA91CCB9C4C0001483A /* IPContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IPContext.h; sourceTree = "<group>"; };
 		D3D1DBAA1CCB9C4C0001483A /* IPContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IPContext.m; sourceTree = "<group>"; };
+		D3E1E1801CD6F3D00043CE06 /* Shaders.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = Shaders.metal; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +99,7 @@
 				D346F0651CD5FD4E00FFA5AA /* UIImage+TextureUtility.m */,
 				D346F0671CD6DB3A00FFA5AA /* MainBoundleTextureProvider.h */,
 				D346F0681CD6DB3A00FFA5AA /* MainBoundleTextureProvider.m */,
+				D3E1E1801CD6F3D00043CE06 /* Shaders.metal */,
 			);
 			path = MetalImage;
 			sourceTree = "<group>";
@@ -184,6 +187,7 @@
 				D346F0691CD6DB3A00FFA5AA /* MainBoundleTextureProvider.m in Sources */,
 				D3D1DBAB1CCB9C4C0001483A /* IPContext.m in Sources */,
 				D3AB0F691CCB5A2E00090731 /* ViewController.m in Sources */,
+				D3E1E1811CD6F3D00043CE06 /* Shaders.metal in Sources */,
 				D31C58411CCCF0790067DEFD /* ImageFilter.m in Sources */,
 				D346F0631CD5EF8B00FFA5AA /* SaturationAdjustmentFilter.m in Sources */,
 				D346F0601CD5826200FFA5AA /* GaussianBlurFilter.m in Sources */,
