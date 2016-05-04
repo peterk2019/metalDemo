@@ -22,10 +22,24 @@
                             </imageView>
                             <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="KiI-Ke-AYj">
                                 <rect key="frame" x="54" y="456" width="492" height="31"/>
+                                <connections>
+                                    <action selector="blurRadiusDidChange:" destination="BYZ-38-t0r" eventType="valueChanged" id="hFJ-vt-5ST"/>
+                                </connections>
+                            </slider>
+                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="jjK-dg-nmp">
+                                <rect key="frame" x="54" y="544" width="492" height="31"/>
+                                <connections>
+                                    <action selector="saturationDidChange:" destination="BYZ-38-t0r" eventType="valueChanged" id="l5u-Va-mYY"/>
+                                </connections>
                             </slider>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="blurRadiusSlider" destination="KiI-Ke-AYj" id="q4i-Aq-5RA"/>
+                        <outlet property="imageView" destination="XVF-zP-Agn" id="lKg-Z4-ZSM"/>
+                        <outlet property="saturationSlider" destination="jjK-dg-nmp" id="u76-dj-DHL"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
