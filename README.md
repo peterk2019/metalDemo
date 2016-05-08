@@ -2,16 +2,19 @@
 Video process demo base on metal
 
 #### ClearTheScreen
-clear the view screen by MTL clear color
+Clear the view screen by MTL clear color
 
 #### Draw2d
-draw triangle
+Draw triangle
 
 #### Draw3d
-draw cube
+Draw cube
 
-#### teapot
-draw teapot
+#### Teapot
+Draw teapot
+
+#### MetalImage
+Gaussion Blur Filter and Saturation Adjustment Filter by Metal
 
 ### Reference
 https://github.com/metal-by-example
