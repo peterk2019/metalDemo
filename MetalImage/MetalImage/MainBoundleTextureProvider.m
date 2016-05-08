@@ -63,11 +63,4 @@
     return texture;
 }
 
-
-- (void) provideTexture :(void (^) (id<MTLTexture>)) textureBlock {
-    if( textureBlock ){
-        textureBlock(_texture);
-    }
-}
-
 @end

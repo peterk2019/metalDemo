@@ -49,7 +49,7 @@
     _saturationFilter = [SaturationAdjustmentFilter filterWithSaturationFactor:self.saturationSlider.value context:_context];
     _saturationFilter.provider = _imageProvider;
     _gaussionBlurFilter = [GaussianBlurFilter filterWithRadius:self.blurRadiusSlider.value :_context];
-    _gaussionBlurFilter.provider = _imageProvider;
+    _gaussionBlurFilter.provider = _saturationFilter;
     [self updateImage];
 }
 
@@ -67,7 +67,7 @@
         _gaussionBlurFilter.radius = blurRadius;
         _saturationFilter.saturationFactor = saturation;
         
-        id<MTLTexture>  texture = _saturationFilter.texture;  //_gaussionBlurFilter.texture;
+        id<MTLTexture>  texture = _gaussionBlurFilter.texture;
         UIImage * image = [UIImage imageWithMTLTexture:texture];
         
         dispatch_async(dispatch_get_main_queue(), ^{

@@ -28,6 +28,7 @@ kernel void adjust_saturation(texture2d<float, access::read> inTexture[[texture(
     outTexture.write(outColor, gid);
 }
 
+
 kernel void gaussian_blur_2d(texture2d<float, access::read> inTexture[[texture(0)]],
                              texture2d<float, access::write> outTexture[[texture(1)]],
                              texture2d<float, access::read> weights[[texture(2)]],

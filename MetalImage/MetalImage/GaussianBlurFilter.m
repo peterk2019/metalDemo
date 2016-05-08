@@ -70,13 +70,14 @@
 }
 
 - (void)setRadius:(float)radius {
-    self.dirty = true;
+    self.dirty = YES;
     _radius = radius;
+    _sigma = radius/2;
     _blurWeightTexture = nil;
 }
 
 - (void)setSigma:(float)sigma {
-    self.dirty = true;
+    self.dirty = YES;
     _sigma = sigma;
     _blurWeightTexture = nil;
 }

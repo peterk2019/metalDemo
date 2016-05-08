@@ -27,7 +27,7 @@ struct AdjustSaturationUniforms
 }
 
 - (void) setSaturationFactor:(float)saturationFactor {
-    self.dirty = true;
+    self.dirty = YES;
     
     _saturationFactor = saturationFactor;
 }
