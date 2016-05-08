@@ -46,11 +46,11 @@
 - (void)buildFilterGraph {
     _context = [IPContext newContext];
     _imageProvider = [MainBoundleTextureProvider textureProviderWithImageNamed:@"mandrill" context:_context];
-    //_saturationFilter = [SaturationAdjustmentFilter filterWithSaturationFactor:self.saturationSlider.value context:_context];
-    //_saturationFilter.provider = _imageProvider;
-    //_gaussionBlurFilter = [GaussianBlurFilter filterWithRadius:self.blurRadiusSlider.value :_context];
-    //_gaussionBlurFilter.provider = _imageProvider;
-    _imageView.image = [UIImage imageWithMTLTexture:_imageProvider.texture];
+    _saturationFilter = [SaturationAdjustmentFilter filterWithSaturationFactor:self.saturationSlider.value context:_context];
+    _saturationFilter.provider = _imageProvider;
+    _gaussionBlurFilter = [GaussianBlurFilter filterWithRadius:self.blurRadiusSlider.value :_context];
+    _gaussionBlurFilter.provider = _imageProvider;
+    [self updateImage];
 }
 
 - (void)updateImage {
@@ -60,25 +60,27 @@
     float blurRadius = _blurRadiusSlider.value;
     float saturation = _saturationSlider.value;
     
-    dispatch_sync(_renderingQueue, ^{
+    NSLog(@"blurRadius = %f, saturation = %f", blurRadius, saturation);
+    
+    dispatch_async(_renderingQueue, ^{
         if( currentJobIndex != _jobIndex ) return;
         _gaussionBlurFilter.radius = blurRadius;
         _saturationFilter.saturationFactor = saturation;
         
-        id<MTLTexture>  texture = _imageProvider.texture; //_gaussionBlurFilter.texture;
+        id<MTLTexture>  texture = _saturationFilter.texture;  //_gaussionBlurFilter.texture;
         UIImage * image = [UIImage imageWithMTLTexture:texture];
         
-        dispatch_sync(dispatch_get_main_queue(), ^{
+        dispatch_async(dispatch_get_main_queue(), ^{
             _imageView.image = image;
         });
     });
 }
 
 - (IBAction)blurRadiusDidChange:(id)sender {
-    //[self updateImage];
+    [self updateImage];
 }
 
 - (IBAction)saturationDidChange:(id)sender {
-    //[self updateImage];
+    [self updateImage];
 }
 @end

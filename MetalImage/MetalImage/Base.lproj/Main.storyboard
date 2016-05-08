@@ -20,13 +20,13 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XVF-zP-Agn">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="405"/>
                             </imageView>
-                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="KiI-Ke-AYj">
+                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="0.10000000000000001" maxValue="7" translatesAutoresizingMaskIntoConstraints="NO" id="KiI-Ke-AYj">
                                 <rect key="frame" x="54" y="456" width="492" height="31"/>
                                 <connections>
                                     <action selector="blurRadiusDidChange:" destination="BYZ-38-t0r" eventType="valueChanged" id="hFJ-vt-5ST"/>
                                 </connections>
                             </slider>
-                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="jjK-dg-nmp">
+                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="jjK-dg-nmp">
                                 <rect key="frame" x="54" y="544" width="492" height="31"/>
                                 <connections>
                                     <action selector="saturationDidChange:" destination="BYZ-38-t0r" eventType="valueChanged" id="l5u-Va-mYY"/>

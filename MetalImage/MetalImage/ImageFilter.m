@@ -58,6 +58,7 @@
     id<MTLComputeCommandEncoder> commandEncoder = [commandBuffer computeCommandEncoder];
     [commandEncoder setComputePipelineState: _pipeline];
     [commandEncoder setTexture:inputTexture atIndex:0];
+    [commandEncoder setTexture:_internalTexture atIndex:1];
     [self configureArgumentTableWithCommandEncoder:commandEncoder];
     [commandEncoder dispatchThreadgroups:threadgroups threadsPerThreadgroup:threadgroupCounts];
     [commandEncoder endEncoding];
@@ -69,6 +70,7 @@
 - (id<MTLTexture>)  texture {
     if( _dirty ) {
         [self applyFilter];
+        _dirty = NO;
     }
     return self.internalTexture;
 }
